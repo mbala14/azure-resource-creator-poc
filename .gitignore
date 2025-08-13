@@ -1,0 +1,14 @@
+
+# IntelliJ IDEA files:
+.idea/
+
+# Local .terraform directories
+**/.terraform/*
+**/resources-tf/.terraform/*
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# tf lock file
+.terraform.lock.hcl
+.DS_Store
