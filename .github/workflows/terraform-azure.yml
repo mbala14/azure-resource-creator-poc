@@ -33,6 +33,8 @@ jobs:
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          TF_LOG: DEBUG               # Enable verbose logging
+          TF_LOG_PATH: ./terraform.log
         run: terraform init
 
       - name: Terraform Plan / Destroy Plan
@@ -42,6 +44,8 @@ jobs:
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          TF_LOG: DEBUG               # Enable verbose logging
+          TF_LOG_PATH: ./terraform.log
         run: |
           if [ "${{ github.event.inputs.action }}" == "apply" ]; then
             terraform plan
@@ -56,6 +60,8 @@ jobs:
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          TF_LOG: DEBUG               # Enable verbose logging
+          TF_LOG_PATH: ./terraform.log
         run: |
           if [ "${{ github.event.inputs.action }}" == "apply" ]; then
             terraform apply -auto-approve
